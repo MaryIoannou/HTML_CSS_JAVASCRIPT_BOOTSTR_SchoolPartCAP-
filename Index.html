@@ -1,0 +1,459 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="Reset gia css.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>School</title>
+    <style>
+
+        .buttons {
+            padding: 5px;
+            margin: 0px;
+        }
+
+        a[href^="mailto"]::before {
+            content: "📧 ";
+        }
+
+        a[href^="tel"]::before {
+            content: "📞 ";
+        }
+    </style>
+
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <!--header-->
+            <div class="col-md-2">
+                <img class="" src="img/Logo.PNG" width="150" height="110" />
+            </div>
+            <div class=" col-md-10 navbar navbar-expand-sm bg-primary navbar-dark">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#button_table_assignment">Assignments</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#button_table_student">Students</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#button_table_trainer">Trainers</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            Courses
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#button_table_course">Courses</a>
+                            <a class="dropdown-item" href="#button_table_tpc">Trainers per Course</a>
+                            <a class="dropdown-item" href="#button_table_spc">Students per Course</a>
+                            <a class="dropdown-item" href="#button_table_apc">Assignments per Course</a>
+                            <a class="dropdown-item" href="#button_table_apspc">Assignments per Student per Course</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!--end header-->
+        </div>
+
+        <div class="">
+            <img src="img/school.jpg" width="1125" />
+        </div>
+        <hr />
+
+        <div class="container">
+            <div id="div_assignment">
+                <div id="div_editform_assignment">
+
+                </div>
+                <!--Assignments form-->
+                <form action="" id="form_assignment">
+                    <h2>Assignment Form</h2>
+                    <div class="form-group">
+                        <label for="TitleAssignment" >Title:</label>
+                        <input type="text" class="form-control" id="TitleAssignment" placeholder="Enter Title (5-20 caracters, letters and digits)" name="TitleAssignment" required  pattern="[A-Za-z0-9 ]{5,20}" maxlength="20" title="Enter 5-20 caracters and numbers">
+                    </div>
+                    <div class="form-group">
+                        <label for="Description">Description:</label>
+                        <input type="text" class="form-control" id="Description" placeholder="Enter Description (5-80 caracters, only letters)" name="Description" required pattern="[A-Za-z ]{5,80}" maxlength="80"  title="Enter 5-80 caracters">
+                    </div>
+                    <div class="form-group">
+                        <label for="SubDateTime">Sub Date Time:</label>
+                        <input type="date" class="form-control" id="SubDateTime" placeholder="SubDateTime" name="SubDateTime" required min='2010-01-01' max='2030-01-01'>
+                    </div>
+                    <div class="form-group">
+                        <label for="OralMark">Oral Mark (optional) :</label>
+                        <input type="number" class="form-control" id="OralMark" placeholder="Enter Oral Mark (0-100)" name="OralMark"  min="0" max="100">
+                    </div>
+                    <div class="form-group">
+                        <label for="TotalMark">Total Mark (optional) :</label>
+                        <input type="number" class="form-control" id="TotalMark" placeholder="Enter Total Mark (0-100)" name="TotalMark" min="0" max="100">
+                    </div>
+                    <input type="submit" name="submit" value="submit" class="btn btn-primary mb-3" id="submit_assignment" />
+                </form>
+                <div class="table-hover" id="button_table_assignment">
+                    <button type="button" id="button_assignment" class="btn btn-primary mb-3">Add Assignment</button>
+                    <!--table Assignments-->
+                    <h6>Assignments</h6>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Sub Date Time</th>
+                                <th>Oral Mark</th>
+                                <th>Total Mark</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody_assignment">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <hr />
+
+            <div id="div_student">
+                <div id="div_editform_student">
+
+                </div>
+                <!--Students form-->
+                <form action="" id="form_student">
+                    <h2>Student Form</h2>
+
+                    <div class="form-group">
+                        <label for="FirstnameStudent">Firstname:</label>
+                        <input type="text" class="form-control" id="FirstnameStudent" placeholder="Enter Firstname (5-15 caracters, only letters)" name="FirstnameStudent" required  pattern="[A-Za-z]{5,15}" maxlength="15" title="Enter 5-15 and only caracters">
+                    </div>
+                    <div class="form-group">
+                        <label for="LastnameStudent">Lastname:</label>
+                        <input type="text" class="form-control" id="LastnameStudent" placeholder="Enter Lastname (5-15 caracters, only letters)" name="LastnameStudent" required  pattern="[A-Za-z]{5,15}" maxlength="15" title="Enter 5-15 and only caracters">
+                    </div>
+                    <div class="form-group">
+                        <label for="Dateofbirth">Date of birth (optional) :</label>
+                        <input type="date" class="form-control" id="Dateofbirth" placeholder="Dateofbirth" name="Dateofbirth" min='1970-01-01' max='2000-01-01'>
+                    </div>
+                    <div class="form-group">
+                        <label for="Tuitionfees">Tuition fees:</label>
+                        <input type="number" class="form-control" id="Tuitionfees" placeholder="Enter Tuition fees" name="Tuitionfees" required min="0" max="3000">
+                    </div>
+                    <input type="submit" name="submit" value="submit" class="btn btn-primary mb-3" id="submit_student" />
+                </form>
+                <div class="table-hover" id="button_table_student">
+                    <button type="button" id="button_student" class="btn btn-primary mb-3">Add Student</button>
+                    <!--table Students-->
+                    <h6>Students</h6>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Firstname</th>
+                                <th>Lastname</th>
+                                <th>Date of birth</th>
+                                <th>Tuition fees</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody_student">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <hr />
+
+            <div id="div_trainer">
+                <div id="div_editform_trainer">
+
+                </div>
+                <!--Trainerts form-->
+                <form action="" id="form_trainer">
+                    <h2>Trainer Form</h2>
+
+                    <div class="form-group">
+                        <label for="FirstnameTrainer">Firstname:</label>
+                        <input type="text" class="form-control" id="FirstnameTrainer" placeholder="Enter Firstname (5-15 caracters, only letters)" name="FirstnameTrainer" required  pattern="[A-Za-z]{5,15}" maxlength="15" title="Enter 5-15 and only caracters">
+                    </div>
+                    <div class="form-group">
+                        <label for="LastnameTrainer">Lastname:</label>
+                        <input type="text" class="form-control" id="LastnameTrainer" placeholder="Enter Lastname (5-15 caracters, only letters)" name="LastnameTrainer" required  pattern="[A-Za-z]{5,15}" maxlength="15" title="Enter 5-15 and only caracters">
+                    </div>
+                    <div class="form-group">
+                        <label for="Subject">Subject:</label>
+                        <input type="text" class="form-control" id="Subject" placeholder="Enter Subject" name="Subject" required  pattern="[A-Za-z ]{2,15}" maxlength="15" title="Enter 2-15 and only caracters">
+                    </div>
+                    <input type="submit" name="submit" value="submit" class="btn btn-primary mb-3" id="submit_trainer" />
+                </form>
+                <div class="table-hover" id="button_table_trainer">
+                    <button type="button" id="button_trainer" class="btn btn-primary mb-3">Add Trainer</button>
+                    <!--table Trainers-->
+                    <h6>Trainers</h6>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Firstname</th>
+                                <th>Lastname</th>
+                                <th>Subject</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody_trainer">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <hr />
+
+            <div id="div_course">
+                <div id="div_editform_course">
+
+                </div>
+                <!--Courses form-->
+                <form action="" id="form_course">
+                    <h2>Course Form</h2>
+                    <div class="form-group">
+                        <label for="TitleCourse">Title:</label>
+                        <input type="text" class="form-control" id="TitleCourse" placeholder="Enter Title (5-20 caracters, letters and digits)" name="TitleCourse" required  pattern="[A-Za-z0-9 ]{5,20}" maxlength="20" title="Enter 5-20 caracters and numbers">
+                    </div>
+                    <div class="form-group">
+                        <label for="Type">Type:</label>
+                        <input type="text" class="form-control" id="Type" placeholder="Enter Type (2-4 caracters and only (#) symbol)" name="Type" required  pattern="[A-Za-z#]{2,4}" maxlength="4" title="Enter 2-4 caracters and (#) symbol">
+                    </div>
+                    <div class="form-group">
+                        <label for="Stream">Stream:</label>
+                        <input type="text" class="form-control" id="Stream" placeholder="Enter Stream (4-10 caracters, only letters)" name="Stream" required  pattern="[A-Za-z ]{4,10}" maxlength="10" title="Enter 4-10 caracters">
+                    </div>
+                    <div class="form-group">
+                        <label for="StartDate">Start Date (optional) :</label>
+                        <input type="date" class="form-control" id="StartDate" placeholder="StartDate" name="StartDate" min='2013-01-01' max='2030-01-01'>
+                    </div>
+                    <div class="form-group">
+                        <label for="EndDate">End Date (optional) :</label>
+                        <input type="date" class="form-control" id="EndDate" placeholder="EndDate" name="EndDate" min='2013-01-01' max='2030-01-01'>
+                    </div>
+                    <input type="submit" name="submit" value="submit" class="btn btn-primary mb-3" id="submit_course" />
+                </form>
+                <div class="table-hover" id="button_table_course">
+                    <button type="button" id="button_course" class="btn btn-primary mb-3">Add Course</button>
+                    <!--table Courses-->
+                    <h6>Courses</h6>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Type</th>
+                                <th>Stream</th>
+                                <th>Start date</th>
+                                <th>End date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody_course">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <hr />
+
+            <!--Trainers per Course-->
+            <div id="div_tpc">
+                <div id="div_editform_tpc">
+
+                </div>
+                <!--tpc form-->
+                <form action="" id="form_tpc">
+                    <h2>Trainers per Course Form</h2>
+                    <div class="form-group" id="div_coursetitle">
+                        <label for="TitleCourse">Title Course:</label><br>
+                        <select id="select_tpc">
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Trainer">Trainer:</label><br>
+                        <div id="inputs_tpc">
+
+                        </div>
+                    </div>
+                    <input type="submit" name="submit" value="submit" class="btn btn-primary mb-3" id="submit_tpc" />
+                </form>
+                <div class="table-hover" id="button_table_tpc">
+                    <button type="button" id="button_tpc" class="btn btn-primary mb-3">Add Trainers per Course</button>
+                    <h6>Trainers per Course</h6>
+                    <!--table tpc-->
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Course Title</th>
+                                <th>Trainers</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody_tpc">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <hr />
+
+            <!--Students per Course-->
+            <div id="div_spc">
+                <div id="div_editform_spc">
+
+                </div>
+                <!--spc form-->
+                <form action="" id="form_spc">
+                    <h2>Students per Course Form</h2>
+                    <div class="form-group" id="div_coursetitle">
+                        <label for="TitleCourse">Title Course:</label><br>
+                        <select id="select_spc">
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Student">Student:</label><br>
+                        <div id="inputs_spc">
+
+                        </div>
+                    </div>
+                    <input type="submit" name="submit" value="submit" class="btn btn-primary mb-3" id="submit_spc" />
+                </form>
+                <div class="table-hover" id="button_table_spc">
+                    <button type="button" id="button_spc" class="btn btn-primary mb-3">Add Students per Course</button>
+                    <h6>Students per Course</h6>
+                    <!--table spc-->
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Course Title</th>
+                                <th>Students</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody_spc">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <hr />
+
+            <!--Assignments per Course-->
+            <div id="div_apc">
+                <div id="div_editform_apc">
+
+                </div>
+                <!--apc form-->
+                <form action="" id="form_apc">
+                    <h2>Assignments per Course Form</h2>
+                    <div class="form-group" id="div_coursetitle">
+                        <label for="TitleCourse">Title Course:</label><br>
+                        <select id="select_apc">
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Assignment">Assignment:</label><br>
+                        <div id="inputs_apc">
+
+                        </div>
+                    </div>
+                    <input type="submit" name="submit" value="submit" class="btn btn-primary mb-3" id="submit_apc" />
+                </form>
+                <div class="table-hover" id="button_table_apc">
+                    <button type="button" id="button_apc" class="btn btn-primary mb-3">Add Assignments per Course</button>
+                    <h6>Assignments per Course</h6>
+                    <!--table apc-->
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Course Title</th>
+                                <th>Assignments</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody_apc">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <hr />
+
+            <!--Assignments per Students per Course-->
+            <div id="div_apspc">
+                <div id="div_editform_apspc">
+
+                </div>
+                <!--apspc form-->
+                <form action="" id="form_apspc">
+                    <h2>Assignments per Students per Course Form</h2>
+                    <div class="form-group" id="div_coursetitle">
+                        <label for="TitleCourse">Title Course:</label><br>
+                        <select id="select_apspc">
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Assignment">Assignment:</label><br>
+                        <div id="inputs_apspc">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Students">Students:</label><br>
+                        <div id="inputss_apspc">
+
+                        </div>
+                    </div>
+                    <input type="submit" name="submit" value="submit" class="btn btn-primary mb-3" id="submit_apspc" />
+                </form>
+                <div class="table-hover" id="button_table_apspc">
+                    <button type="button" id="button_apspc" class="btn btn-primary mb-3">Add Assignments per Students per Course</button>
+                    <h6>Assignments per Students per Course</h6>
+                    <!--table apspc-->
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Student</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody_apspc">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <hr />
+            <br />
+            <br />
+            <br />
+            <br />
+
+            <div class="footer" style="background-color:#007bff">
+                <div class="row">
+                    <div class="col-md-1">
+
+                    </div>
+                    <div class="col-md-8">
+                        <br>
+                        <h3> Contact us</h3>
+                        <p> For more information about enrollment or visiting our school, please contact the school at:</p>
+                        <address>
+                            <a style="color:#212529;font-style:italic" href="mailto:ioannouacademia@rock.com">ioannouacademia@gmail.com</a><br>
+                            <a style="color:#212529;font-style:italic" href="tel:+26820241388">2682024138</a>
+                        </address>
+                    </div>
+                    <div class=" col-md-3">
+                        <br>
+                        <br>
+                        <img src="img/instagram-logo.png" height="30" width="30" />
+                        <img src="img/fb logo.png" height="75" width="75" />
+                        <img src="img/twitter-logo.png" height="30" width="30" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="Scripts/jquery-3.4.1.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
